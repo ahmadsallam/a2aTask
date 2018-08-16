@@ -10,6 +10,7 @@ target 'a2aTask' do
 	pod 'SDWebImage'
 	pod 'IQKeyboardManagerSwift'
 	pod 'Alamofire'
-
+    pod 'Firebase/Core'
+  
 
 end

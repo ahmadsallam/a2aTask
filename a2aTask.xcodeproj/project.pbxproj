@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8933ADF8D99FC1F6C4F6E942 /* Pods_a2aTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21601D4E82D664536E452FA9 /* Pods_a2aTask.framework */; };
+		A79B9A4D2125D7C200A44A8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A79B9A4C2125D7C100A44A8D /* GoogleService-Info.plist */; };
 		A7A0D6C02125D1F1002A25CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A0D6BF2125D1F1002A25CA /* AppDelegate.swift */; };
 		A7A0D6C22125D1F1002A25CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A0D6C12125D1F1002A25CA /* ViewController.swift */; };
 		A7A0D6C52125D1F1002A25CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7A0D6C32125D1F1002A25CA /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* Begin PBXFileReference section */
 		21601D4E82D664536E452FA9 /* Pods_a2aTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_a2aTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BB9B42DEA4583A384214BB6 /* Pods-a2aTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-a2aTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-a2aTask/Pods-a2aTask.debug.xcconfig"; sourceTree = "<group>"; };
+		A79B9A4C2125D7C100A44A8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A7A0D6BC2125D1F1002A25CA /* a2aTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = a2aTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A0D6BF2125D1F1002A25CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7A0D6C12125D1F1002A25CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A79B9A4E2125D83100A44A8D /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A7A0D6BF2125D1F1002A25CA /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		A7A0D6B32125D1F1002A25CA = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +80,7 @@
 		A7A0D6BE2125D1F1002A25CA /* a2aTask */ = {
 			isa = PBXGroup;
 			children = (
+				A79B9A4E2125D83100A44A8D /* Application */,
 				A7A0D6D12125D227002A25CA /* Model */,
 				A7A0D6D32125D235002A25CA /* Views */,
 				A7A0D6D52125D25F002A25CA /* Controllers */,
@@ -113,8 +124,8 @@
 		A7A0D6D62125D273002A25CA /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				A79B9A4C2125D7C100A44A8D /* GoogleService-Info.plist */,
 				A7A0D6C62125D1F2002A25CA /* Assets.xcassets */,
-				A7A0D6BF2125D1F1002A25CA /* AppDelegate.swift */,
 				A7A0D6CB2125D1F2002A25CA /* Info.plist */,
 			);
 			path = Support;
@@ -191,6 +202,7 @@
 				A7A0D6CA2125D1F2002A25CA /* LaunchScreen.storyboard in Resources */,
 				A7A0D6C72125D1F2002A25CA /* Assets.xcassets in Resources */,
 				A7A0D6C52125D1F1002A25CA /* Main.storyboard in Resources */,
+				A79B9A4D2125D7C200A44A8D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,14 +235,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-a2aTask/Pods-a2aTask-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
