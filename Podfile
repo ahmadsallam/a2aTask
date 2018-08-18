@@ -11,6 +11,10 @@ target 'a2aTask' do
 	pod 'IQKeyboardManagerSwift'
 	pod 'Alamofire'
     pod 'Firebase/Core'
-  
+    pod 'Firebase/Auth'
+    pod 'PasswordTextField'
+    pod 'NVActivityIndicatorView'
+
+
 
 end
