@@ -7,14 +7,13 @@ target 'a2aTask' do
 
   # Pods for a2aTask
 
-	pod 'SDWebImage'
 	pod 'IQKeyboardManagerSwift'
 	pod 'Alamofire'
     pod 'Firebase/Core'
     pod 'Firebase/Auth'
     pod 'PasswordTextField'
     pod 'NVActivityIndicatorView'
-
-
+    pod 'SnapKit', '~> 4.0.0'
+    pod 'Pastel'
 
 end

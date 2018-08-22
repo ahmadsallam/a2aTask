@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         IQKeyboardManager.sharedManager().toolbarPreviousNextAllowedClasses.append(UIScrollView.self)
-        
-
+        changeColorOfStatusBar()
+       
         return true
     }
 
@@ -48,7 +48,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    func changeColorOfStatusBar(){
+        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+        statusBar.backgroundColor = .black
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
+    
 }
 

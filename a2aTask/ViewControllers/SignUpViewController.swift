@@ -5,7 +5,6 @@
 //  Created by Ahmad Sallam  on 8/16/18.
 //  Copyright © 2018 Ahmad Sallam . All rights reserved.
 //
-//  self.navigationController?.popViewController(animated: true)
 import UIKit
 import PasswordTextField
 import FirebaseAuth
@@ -46,11 +45,11 @@ class SignUpViewController: UIViewController {
     
     @objc func signUpSelector(){
         view.endEditing(true)
-        guard let email = emailTextField.text else {
+        guard let email = emailTextField.text,!email.isEmpty else {
             showAlert(title: "Error", message: "Email is required", ok: "Ok")
             return
         }
-        guard let password = passwordTextField.text else {
+        guard let password = passwordTextField.text,!password.isEmpty else {
             showAlert(title: "Error", message: "Password is required", ok: "Ok")
             return 
         }

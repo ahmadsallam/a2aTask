@@ -13,6 +13,8 @@ import FirebaseAuth
 class LoginViewController : UIViewController,SignUpViewControllerDelegate {
     
   
+    @IBOutlet weak var signInLabel: UILabel!
+    @IBOutlet weak var loginActivity: UIActivityIndicatorView!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: PasswordTextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -35,7 +37,8 @@ class LoginViewController : UIViewController,SignUpViewControllerDelegate {
     
     func setupView(){
         loginButton.addTarget(self, action:#selector(loginButtonSelector), for: .touchUpInside)
-        
+        loginActivity.isHidden = true
+
         //AS: Tap gesture recognizer for the signUp UILable
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(signUpLabelSelector))
         signUpLabel.isUserInteractionEnabled = true
@@ -45,24 +48,32 @@ class LoginViewController : UIViewController,SignUpViewControllerDelegate {
     
     //MARK: - Selector And Action
     
-    @objc func loginButtonSelector() {
+    @objc func loginButtonSelector(sender:UIButton) {
         view.endEditing(true)
-        guard let email = userNameTextField.text,!email.isEmpty else {
-            showAlert(title: "Error", message: "E-Mail is requierd to login", ok: "Ok")
-            return
-        }
-        guard let password = passwordTextField.text,!password.isEmpty else {
-            showAlert(title: "Error", message: "Password is requierd to login", ok: "Ok")
-            return
-        }
-        showActivityIndicator(message: "Please Wait To Login")
+//        guard let email = userNameTextField.text,!email.isEmpty else {
+//            showAlert(title: "Error", message: "E-Mail is requierd to login", ok: "Ok")
+//            return
+//        }
+//        guard let password = passwordTextField.text,!password.isEmpty else {
+//            showAlert(title: "Error", message: "Password is requierd to login", ok: "Ok")
+//            return
+//        }
+        let email = "a@a.com"
+        let password = "ahmad123"
+        signInLabel.isHidden = true
+        loginActivity.isHidden = false
+        loginActivity.startAnimating()
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            self.hideActivityIndicator()
+            self.loginActivity.stopAnimating()
             if let error = error {
-                self.showAlert(title: "Error", message: error.localizedDescription, ok: "Ok")
+                self.showAlertWithHandler(title: "Error", message: error.localizedDescription, ok: "Ok", handler: { (_) in
+                    self.loginActivity.isHidden = true
+                    self.signInLabel.isHidden = false
+                })
             }else{
                 if let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") {
                     self.show(homeVC, sender: self)
+                
                 }
             }
         }
