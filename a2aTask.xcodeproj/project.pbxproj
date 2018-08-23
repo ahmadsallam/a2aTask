@@ -16,6 +16,8 @@
 		A7181C14212CB99F0089B6AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7181C13212CB99F0089B6AB /* LoginViewController.swift */; };
 		A7181C16212CC51C0089B6AB /* ListOfRepositoryViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7181C15212CC51C0089B6AB /* ListOfRepositoryViewContoller.swift */; };
 		A7181C18212CE5220089B6AB /* RepositoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7181C17212CE5220089B6AB /* RepositoryObject.swift */; };
+		A7181C20212F5B460089B6AB /* RepositoryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7181C1E212F5B460089B6AB /* RepositoryDetailsViewController.swift */; };
+		A7181C21212F5B460089B6AB /* RepositoryDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7181C1F212F5B460089B6AB /* RepositoryDetailsViewController.xib */; };
 		A77661912125EE8C00388089 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77661902125EE8C00388089 /* SignUpViewController.swift */; };
 		A77661932125F49400388089 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77661922125F49400388089 /* Extension.swift */; };
 		A79B9A4D2125D7C200A44A8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A79B9A4C2125D7C100A44A8D /* GoogleService-Info.plist */; };
@@ -36,6 +38,8 @@
 		A7181C13212CB99F0089B6AB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A7181C15212CC51C0089B6AB /* ListOfRepositoryViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfRepositoryViewContoller.swift; sourceTree = "<group>"; };
 		A7181C17212CE5220089B6AB /* RepositoryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryObject.swift; sourceTree = "<group>"; };
+		A7181C1E212F5B460089B6AB /* RepositoryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsViewController.swift; sourceTree = "<group>"; };
+		A7181C1F212F5B460089B6AB /* RepositoryDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryDetailsViewController.xib; sourceTree = "<group>"; };
 		A77661902125EE8C00388089 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A77661922125F49400388089 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		A79B9A4C2125D7C100A44A8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -67,6 +71,15 @@
 				F44553BC450CA95ED5A40A90 /* Pods-a2aTask.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A7181C19212D99E00089B6AB /* RepositoryDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				A7181C1E212F5B460089B6AB /* RepositoryDetailsViewController.swift */,
+				A7181C1F212F5B460089B6AB /* RepositoryDetailsViewController.xib */,
+			);
+			path = RepositoryDetailsView;
 			sourceTree = "<group>";
 		};
 		A79B9A4E2125D83100A44A8D /* Application */ = {
@@ -120,6 +133,7 @@
 		A7A0D6D22125D22E002A25CA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A7181C19212D99E00089B6AB /* RepositoryDetailsView */,
 				A7181C13212CB99F0089B6AB /* LoginViewController.swift */,
 				A77661902125EE8C00388089 /* SignUpViewController.swift */,
 				A716227F2128E88800F0695A /* HomeViewController.swift */,
@@ -230,6 +244,7 @@
 				A7A0D6C72125D1F2002A25CA /* Assets.xcassets in Resources */,
 				A7A0D6C52125D1F1002A25CA /* Main.storyboard in Resources */,
 				A79B9A4D2125D7C200A44A8D /* GoogleService-Info.plist in Resources */,
+				A7181C21212F5B460089B6AB /* RepositoryDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +284,7 @@
 				"${BUILT_PRODUCTS_DIR}/PasswordTextField/PasswordTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Pastel/Pastel.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -281,6 +297,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PasswordTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pastel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,6 +322,7 @@
 				A7181C18212CE5220089B6AB /* RepositoryObject.swift in Sources */,
 				A77661912125EE8C00388089 /* SignUpViewController.swift in Sources */,
 				A7A0D6C02125D1F1002A25CA /* AppDelegate.swift in Sources */,
+				A7181C20212F5B460089B6AB /* RepositoryDetailsViewController.swift in Sources */,
 				A716228221296C5000F0695A /* BlurView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

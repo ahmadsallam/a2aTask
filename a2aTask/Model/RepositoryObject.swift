@@ -10,9 +10,16 @@ import UIKit
 
 class RepositoryObject {
     
-    var name: String?
+    var name: String?,
+        forks_count: Int?,
+        watchers_count: Int?
     
-    init(name: String!) {
+    init(name: String!,
+         forks_count: Int!,
+         watchers_count: Int!) {
+        
+        self.watchers_count = watchers_count
+        self.forks_count = forks_count
         self.name = name
     }
     

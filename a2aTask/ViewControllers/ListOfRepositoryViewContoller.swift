@@ -16,7 +16,7 @@ class ListOfRepositoryViewContoller: UIViewController,UITableViewDelegate,UITabl
     let refreshControl = UIRefreshControl()
     var isRequesting = false
     let userName = "whymarrh"
-    var repositoryArray = [RepositoryObject]() {
+    var repositoryArray = [RepositoryObject?]() {
         didSet {
             isRequesting = false
             refreshControl.endRefreshing()
@@ -26,6 +26,7 @@ class ListOfRepositoryViewContoller: UIViewController,UITableViewDelegate,UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Repository List"
         setupTableView()
         getRepostoryAPI()
     }
@@ -36,7 +37,6 @@ class ListOfRepositoryViewContoller: UIViewController,UITableViewDelegate,UITabl
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-       
     }
     
     //MARK: - Helping Method
@@ -64,15 +64,34 @@ class ListOfRepositoryViewContoller: UIViewController,UITableViewDelegate,UITabl
     }
 
     //MARK: - TableView Delegate
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        guard !repositoryArray.isEmpty,
+            let reposObject = repositoryArray[indexPath.row],
+            let reposName = reposObject.name,
+            let numberOfForks = reposObject.forks_count,
+            let numberOfWatcher = reposObject.watchers_count else {
+                showAlert(title: "Error", message: "(Repository object is missing some of data)", ok: "Ok")
+                return
+        }
+        let repositoryDetailsView = RepositoryDetailsViewController(repositoryName: reposName,
+                                                                    numberOfForks: numberOfForks,
+                                                                    numberOfWatcher: numberOfWatcher)
+        
+        repositoryDetailsView.modalPresentationStyle = .custom
+        self.present(repositoryDetailsView, animated: true, completion: nil)
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.setEmptyMessage(message: "Empty List", count: repositoryArray.count)
         return repositoryArray.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        if repositoryArray.count > 0 {
-            let repoName = repositoryArray[indexPath.row].name
+        if repositoryArray.count > 0,let repoObject = repositoryArray[indexPath.row] {
+            let repoName = repoObject.name
             cell.textLabel?.text = repoName
         }
         return cell
@@ -86,6 +105,7 @@ class ListOfRepositoryViewContoller: UIViewController,UITableViewDelegate,UITabl
         refreshControl.beginRefreshing()
         tableView.setContentOffset(CGPoint.zero, animated: false)
         
+        //end point url
         guard let url = URL(string: "\(Constant.baseURL)\(Constant.usersAPI)/\(userName)/\(Constant.reposAPI)") else {return}
         Alamofire.request(url).responseJSON { (response) in
             self.hideActivityIndicator()

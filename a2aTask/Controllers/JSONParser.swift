@@ -29,7 +29,9 @@ class JSONParser {
         
         for repositoryObject in response {
             if let repository = repositoryObject as? [String:Any] {
-                let object = RepositoryObject(name: repository["name"] as? String)
+                let object = RepositoryObject(name: repository["name"] as? String,
+                                              forks_count: repository["forks_count"] as? Int,
+                                              watchers_count:  repository["watchers_count"] as? Int)
                 repositoryArray.append(object)
             }
         }

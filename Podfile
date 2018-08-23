@@ -15,5 +15,7 @@ target 'a2aTask' do
     pod 'NVActivityIndicatorView'
     pod 'SnapKit', '~> 4.0.0'
     pod 'Pastel'
+    pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
+
 
 end
