@@ -50,16 +50,14 @@ class LoginViewController : UIViewController,SignUpViewControllerDelegate {
     
     @objc func loginButtonSelector(sender:UIButton) {
         view.endEditing(true)
-//        guard let email = userNameTextField.text,!email.isEmpty else {
-//            showAlert(title: "Error", message: "E-Mail is requierd to login", ok: "Ok")
-//            return
-//        }
-//        guard let password = passwordTextField.text,!password.isEmpty else {
-//            showAlert(title: "Error", message: "Password is requierd to login", ok: "Ok")
-//            return
-//        }
-        let email = "a@a.com"
-        let password = "ahmad123"
+        guard let email = userNameTextField.text,!email.isEmpty else {
+            showAlert(title: "Error", message: "E-Mail is requierd to login", ok: "Ok")
+            return
+        }
+        guard let password = passwordTextField.text,!password.isEmpty else {
+            showAlert(title: "Error", message: "Password is requierd to login", ok: "Ok")
+            return
+        }
         signInLabel.isHidden = true
         loginActivity.isHidden = false
         loginActivity.startAnimating()
@@ -73,11 +71,9 @@ class LoginViewController : UIViewController,SignUpViewControllerDelegate {
             }else{
                 if let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") {
                     self.show(homeVC, sender: self)
-                
                 }
             }
         }
-        
     }
     
     @objc func signUpLabelSelector() {

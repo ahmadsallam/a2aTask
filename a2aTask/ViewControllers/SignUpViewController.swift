@@ -40,7 +40,6 @@ class SignUpViewController: UIViewController {
     
     func setupView(){
         signUpButton.addTarget(self, action: #selector(signUpSelector), for: .touchUpInside)
-        
     }
     
     @objc func signUpSelector(){
@@ -54,7 +53,6 @@ class SignUpViewController: UIViewController {
             return 
         }
         showActivityIndicator(message: "Please Wait")
-
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             self.hideActivityIndicator()
             if let error = error?.localizedDescription {
@@ -75,9 +73,7 @@ class SignUpViewController: UIViewController {
                 })
             }
         }
-     
     }
-    
     
 
 }

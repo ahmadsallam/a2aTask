@@ -66,6 +66,7 @@ class HomeViewController: UIViewController {
     //MARK: Helping Method
     
     func setupImageView(){
+        //Make rounded image view
         imageView.layer.cornerRadius = imageView.bounds.width / 2
         imageRoundedView.layer.cornerRadius = imageRoundedView.bounds.width / 2
         imageRoundedView.backgroundColor = .white
